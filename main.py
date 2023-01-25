@@ -15,9 +15,8 @@ from fn import draw_single
 from Track.Tracker import Detection, Tracker
 from ActionsEstLoader import TSSTG
 
-#source = '../Data/test_video/test7.mp4'
-#source = '../Data/falldata/Home/Videos/video (2).avi'  # hard detect
-source = '../Data/falldata/Home/Videos/video (1).avi'
+# hard detect
+source = '/content/drive/MyDrive/OldManDown/Real-TimeActionRecognition files/test1.avi'
 #source = 2
 
 
@@ -52,7 +51,7 @@ if __name__ == '__main__':
                         help='Show all bounding box from detection.')
     par.add_argument('--show_skeleton', default=True, action='store_true',
                         help='Show skeleton pose.')
-    par.add_argument('--save_out', type=str, default='',
+    par.add_argument('--save_out', type=str, default='/content/drive/MyDrive/OldManDown/Real-TimeActionRecognition files/test1_1.avi',
                         help='Save display to video file.')
     par.add_argument('--device', type=str, default='cuda',
                         help='Device to run model on cpu or cuda.')
@@ -176,7 +175,7 @@ if __name__ == '__main__':
         if outvid:
             writer.write(frame)
 
-        cv2.imshow('frame', frame)
+        #cv2.imshow('frame', frame) # Uncomment to show if running local
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
